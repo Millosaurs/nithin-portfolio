@@ -209,13 +209,13 @@ export default function Design() {
         Here is the collection of my designs
       </p>
 
-      {/* Product Creative's Section - Keeping original masonry layout */}
+      {/* Product Creative's Section - Grid layout for better alignment */}
       <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif mx-4 sm:mx-12 lg:mx-20 my-8">
         Product Creative's
       </h1>
-      <div className="columns-1 sm:columns-2 lg:columns-4 gap-4 sm:gap-8 lg:gap-12 space-y-4 sm:space-y-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 lg:gap-12">
         {cardData.map((item, idx) => (
-          <div key={idx} className="break-inside-avoid">
+          <div key={idx} className="">
             <Card {...item} />
           </div>
         ))}
