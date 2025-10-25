@@ -160,9 +160,9 @@ const caData: CardData[] = [
   },
 ];
 
-function Card({ imgUrl }: CardProps) {
+function Card({ imgUrl, onClick }: CardProps & { onClick?: () => void }) {
   return (
-    <div className="relative cursor-pointer h-full">
+    <div className="relative cursor-pointer h-full" onClick={onClick}>
       <img
         src={imgUrl}
         alt="Design"
@@ -173,9 +173,9 @@ function Card({ imgUrl }: CardProps) {
   );
 }
 
-function Card2({ imgUrl }: CardProps) {
+function Card2({ imgUrl, onClick }: CardProps & { onClick?: () => void }) {
   return (
-    <div className="relative cursor-pointer h-full">
+    <div className="relative cursor-pointer h-full" onClick={onClick}>
       <img
         src={imgUrl}
         alt="Design"
@@ -186,9 +186,17 @@ function Card2({ imgUrl }: CardProps) {
   );
 }
 
-function BannerCard({ imgUrl, alt }: { imgUrl: string; alt: string }) {
+function BannerCard({
+  imgUrl,
+  alt,
+  onClick,
+}: {
+  imgUrl: string;
+  alt: string;
+  onClick?: () => void;
+}) {
   return (
-    <div className="relative cursor-pointer h-full">
+    <div className="relative cursor-pointer h-full" onClick={onClick}>
       <img
         src={imgUrl}
         alt={alt}
@@ -200,6 +208,8 @@ function BannerCard({ imgUrl, alt }: { imgUrl: string; alt: string }) {
 }
 
 export default function Design() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <div id="design" className="mx-4 sm:mx-8 lg:mx-16 py-8 min-h-screen">
       <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif">
@@ -209,14 +219,38 @@ export default function Design() {
         Here is the collection of my designs
       </p>
 
+      {/* Modal for full image view */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            onClick={() => setSelectedImage(null)}
+          >
+            <X size={32} />
+          </button>
+          <img
+            src={selectedImage}
+            alt="Full view"
+            className="max-w-full max-h-full object-contain rounded-lg"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+
       {/* Product Creative's Section - Grid layout for better alignment */}
       <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif mx-4 sm:mx-12 lg:mx-20 my-8">
         Product Creative's
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 lg:gap-12">
         {cardData.map((item, idx) => (
-          <div key={idx} className="">
-            <Card {...item} />
+          <div key={idx}>
+            <Card
+              {...item}
+              onClick={() => setSelectedImage(item.imgUrl || null)}
+            />
           </div>
         ))}
       </div>
@@ -229,24 +263,47 @@ export default function Design() {
       {/* Mobile & Tablet: Simple masonry layout */}
       <div className="block lg:hidden columns-1 sm:columns-2 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
         <div className="break-inside-avoid">
-          <BannerCard imgUrl="/ac/Leaderboard.png" alt="Billboard" />
+          <BannerCard
+            imgUrl="/ac/Leaderboard.png"
+            alt="Billboard"
+            onClick={() => setSelectedImage("/ac/Leaderboard.png")}
+          />
         </div>
         {acData.map((item, idx) => (
           <div key={idx} className="break-inside-avoid">
-            <Card {...item} />
+            <Card
+              {...item}
+              onClick={() => setSelectedImage(item.imgUrl || null)}
+            />
           </div>
         ))}
         <div className="break-inside-avoid">
-          <BannerCard imgUrl="/ac/Billboard.png" alt="Leaderboard" />
+          <BannerCard
+            imgUrl="/ac/Billboard.png"
+            alt="Leaderboard"
+            onClick={() => setSelectedImage("/ac/Billboard.png")}
+          />
         </div>
         <div className="break-inside-avoid">
-          <BannerCard imgUrl="/ac/RP.png" alt="RP Banner" />
+          <BannerCard
+            imgUrl="/ac/RP.png"
+            alt="RP Banner"
+            onClick={() => setSelectedImage("/ac/RP.png")}
+          />
         </div>
         <div className="break-inside-avoid">
-          <BannerCard imgUrl="/ac/Billboard.png" alt="Leaderboard" />
+          <BannerCard
+            imgUrl="/ac/Billboard.png"
+            alt="Leaderboard"
+            onClick={() => setSelectedImage("/ac/Billboard.png")}
+          />
         </div>
         <div className="break-inside-avoid">
-          <BannerCard imgUrl="/ac/Billboard.png" alt="Leaderboard" />
+          <BannerCard
+            imgUrl="/ac/Billboard.png"
+            alt="Leaderboard"
+            onClick={() => setSelectedImage("/ac/Billboard.png")}
+          />
         </div>
       </div>
 
@@ -254,36 +311,68 @@ export default function Design() {
       <div className="hidden lg:grid grid-cols-12 auto-rows-[100px] gap-4">
         {/* Billboard - wide banner (16:9 or wider) */}
         <div className="col-span-12 row-span-2">
-          <BannerCard imgUrl="/ac/Leaderboard.png" alt="Billboard" />
+          <BannerCard
+            imgUrl="/ac/Leaderboard.png"
+            alt="Billboard"
+            onClick={() => setSelectedImage("/ac/Leaderboard.png")}
+          />
         </div>
         {/* First portrait card - 9:16 aspect */}
         <div className="col-span-3 row-span-8">
-          <Card {...acData[0]} />
+          <Card
+            {...acData[0]}
+            onClick={() => setSelectedImage(acData[0].imgUrl || null)}
+          />
         </div>
         {/* Second portrait card - 9:16 */}
         <div className="col-span-3 row-span-8">
-          <Card {...acData[1]} />
+          <Card
+            {...acData[1]}
+            onClick={() => setSelectedImage(acData[1].imgUrl || null)}
+          />
         </div>
         {/* Third portrait card - 9:16 */}
         <div className="col-span-3 row-span-8">
-          <Card {...acData[2]} />
+          <Card
+            {...acData[2]}
+            onClick={() => setSelectedImage(acData[2].imgUrl || null)}
+          />
         </div>
         {/* Fourth portrait card - 9:16 */}
         <div className="col-span-3 row-span-8">
-          <Card {...acData[3]} />
+          <Card
+            {...acData[3]}
+            onClick={() => setSelectedImage(acData[3].imgUrl || null)}
+          />
         </div>
         {/* Leaderboard - wide banner */}
         <div className="col-span-8 row-span-2">
-          <BannerCard imgUrl="/ac/Billboard.png" alt="Leaderboard" />
+          <BannerCard
+            imgUrl="/ac/Billboard.png"
+            alt="Leaderboard"
+            onClick={() => setSelectedImage("/ac/Billboard.png")}
+          />
         </div>
         <div className="col-span-4 row-span-6">
-          <BannerCard imgUrl="/ac/RP.png" alt="RP Banner" />
+          <BannerCard
+            imgUrl="/ac/RP.png"
+            alt="RP Banner"
+            onClick={() => setSelectedImage("/ac/RP.png")}
+          />
         </div>
         <div className="col-span-8 row-span-2">
-          <BannerCard imgUrl="/ac/Billboard.png" alt="Leaderboard" />
+          <BannerCard
+            imgUrl="/ac/Billboard.png"
+            alt="Leaderboard"
+            onClick={() => setSelectedImage("/ac/Billboard.png")}
+          />
         </div>
         <div className="col-span-8 row-span-2">
-          <BannerCard imgUrl="/ac/Billboard.png" alt="Leaderboard" />
+          <BannerCard
+            imgUrl="/ac/Billboard.png"
+            alt="Leaderboard"
+            onClick={() => setSelectedImage("/ac/Billboard.png")}
+          />
         </div>
       </div>
 
@@ -294,7 +383,10 @@ export default function Design() {
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-8 lg:gap-12 space-y-4 sm:space-y-6">
         {pData.map((item, idx) => (
           <div key={idx} className="break-inside-avoid">
-            <Card {...item} />
+            <Card
+              {...item}
+              onClick={() => setSelectedImage(item.imgUrl || null)}
+            />
           </div>
         ))}
       </div>
@@ -306,7 +398,10 @@ export default function Design() {
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-8 lg:gap-12 space-y-4 sm:space-y-6">
         {caData.map((item, idx) => (
           <div key={idx} className="break-inside-avoid">
-            <Card2 {...item} />
+            <Card2
+              {...item}
+              onClick={() => setSelectedImage(item.imgUrl || null)}
+            />
           </div>
         ))}
       </div>
