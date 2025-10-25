@@ -92,11 +92,6 @@ const acData: CardData[] = [
     description: "This is a description for advertising campaign.",
     imgUrl: "/ac/MC.png",
   },
-  {
-    title: "Advertising Campaign",
-    description: "This is a description for advertising campaign.",
-    imgUrl: "/ac/MP.png",
-  },
 ];
 
 const pData: CardData[] = [
@@ -200,7 +195,7 @@ function BannerCard({
       <img
         src={imgUrl}
         alt={alt}
-        className="relative rounded-lg overflow-hidden object-fit object-center w-full h-full z-10 transition-all duration-300 ease-out hover:translate-x-[12px] hover:translate-y-[12px]"
+        className="relative rounded-lg overflow-hidden object-fill object-center w-full h-full z-10 transition-all duration-300 ease-out hover:translate-x-[12px] hover:translate-y-[12px]"
       />
       <div className="absolute inset-0 bg-black rounded-lg opacity-100 hover:opacity-0 transition-opacity duration-300 translate-x-[12px] translate-y-[12px] pointer-events-none" />
     </div>
@@ -293,16 +288,16 @@ export default function Design() {
         </div>
         <div className="break-inside-avoid">
           <BannerCard
-            imgUrl="/ac/Billboard.png"
+            imgUrl="/ac/bb1.png"
             alt="Leaderboard"
-            onClick={() => setSelectedImage("/ac/Billboard.png")}
+            onClick={() => setSelectedImage("/ac/bb1.png")}
           />
         </div>
         <div className="break-inside-avoid">
           <BannerCard
-            imgUrl="/ac/Billboard.png"
+            imgUrl="/ac/bb2.png"
             alt="Leaderboard"
-            onClick={() => setSelectedImage("/ac/Billboard.png")}
+            onClick={() => setSelectedImage("/ac/bb2.png")}
           />
         </div>
       </div>
@@ -318,31 +313,24 @@ export default function Design() {
           />
         </div>
         {/* First portrait card - 9:16 aspect */}
-        <div className="col-span-3 row-span-8">
+        <div className="col-span-4 row-span-8">
           <Card
             {...acData[0]}
             onClick={() => setSelectedImage(acData[0].imgUrl || null)}
           />
         </div>
         {/* Second portrait card - 9:16 */}
-        <div className="col-span-3 row-span-8">
+        <div className="col-span-4 row-span-8">
           <Card
             {...acData[1]}
             onClick={() => setSelectedImage(acData[1].imgUrl || null)}
           />
         </div>
         {/* Third portrait card - 9:16 */}
-        <div className="col-span-3 row-span-8">
+        <div className="col-span-4 row-span-8">
           <Card
             {...acData[2]}
             onClick={() => setSelectedImage(acData[2].imgUrl || null)}
-          />
-        </div>
-        {/* Fourth portrait card - 9:16 */}
-        <div className="col-span-3 row-span-8">
-          <Card
-            {...acData[3]}
-            onClick={() => setSelectedImage(acData[3].imgUrl || null)}
           />
         </div>
         {/* Leaderboard - wide banner */}
@@ -362,16 +350,16 @@ export default function Design() {
         </div>
         <div className="col-span-8 row-span-2">
           <BannerCard
-            imgUrl="/ac/Billboard.png"
+            imgUrl="/ac/bb1.png"
             alt="Leaderboard"
-            onClick={() => setSelectedImage("/ac/Billboard.png")}
+            onClick={() => setSelectedImage("/ac/bb1.png")}
           />
         </div>
         <div className="col-span-8 row-span-2">
           <BannerCard
-            imgUrl="/ac/Billboard.png"
+            imgUrl="/ac/bb2.png"
             alt="Leaderboard"
-            onClick={() => setSelectedImage("/ac/Billboard.png")}
+            onClick={() => setSelectedImage("/ac/bb2.png")}
           />
         </div>
       </div>
