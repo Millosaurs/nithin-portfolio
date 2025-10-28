@@ -153,6 +153,11 @@ const caData: CardData[] = [
     description: "This is a description for cover art.",
     imgUrl: "/ca/5.jpg",
   },
+  {
+    title: "Cover art",
+    description: "This is a description for cover art.",
+    imgUrl: "/ca/6.png",
+  },
 ];
 
 function Card({ imgUrl, onClick }: CardProps & { onClick?: () => void }) {
