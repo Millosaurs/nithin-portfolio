@@ -256,12 +256,12 @@ export default function Design() {
       </div>
 
       {/* Advertising Campaign Section - Responsive Grid Layout */}
-      <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif mx-4 sm:mx-12 lg:mx-20 my-8">
+      {/*<h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif mx-4 sm:mx-12 lg:mx-20 my-8">
         Advertising campaign
-      </h1>
+      </h1>*/}
 
       {/* Mobile & Tablet: Simple masonry layout */}
-      <div className="block lg:hidden columns-1 sm:columns-2 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
+      {/*<div className="block lg:hidden columns-1 sm:columns-2 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
         <div className="break-inside-avoid">
           <BannerCard
             imgUrl="/ac/Leaderboard.png"
@@ -305,11 +305,11 @@ export default function Design() {
             onClick={() => setSelectedImage("/ac/bb2.png")}
           />
         </div>
-      </div>
+      </div>*/}
 
       {/* Desktop: Original grid layout */}
-      <div className="hidden lg:grid grid-cols-12 auto-rows-[100px] gap-4">
-        {/* Billboard - wide banner (16:9 or wider) */}
+      {/*<div className="hidden lg:grid grid-cols-12 auto-rows-[100px] gap-4">
+
         <div className="col-span-12 row-span-2">
           <BannerCard
             imgUrl="/ac/Leaderboard.png"
@@ -317,28 +317,28 @@ export default function Design() {
             onClick={() => setSelectedImage("/ac/Leaderboard.png")}
           />
         </div>
-        {/* First portrait card - 9:16 aspect */}
+
         <div className="col-span-4 row-span-8">
           <Card
             {...acData[0]}
             onClick={() => setSelectedImage(acData[0].imgUrl || null)}
           />
         </div>
-        {/* Second portrait card - 9:16 */}
+
         <div className="col-span-4 row-span-8">
           <Card
             {...acData[1]}
             onClick={() => setSelectedImage(acData[1].imgUrl || null)}
           />
         </div>
-        {/* Third portrait card - 9:16 */}
+
         <div className="col-span-4 row-span-8">
           <Card
             {...acData[2]}
             onClick={() => setSelectedImage(acData[2].imgUrl || null)}
           />
         </div>
-        {/* Leaderboard - wide banner */}
+
         <div className="col-span-8 row-span-2">
           <BannerCard
             imgUrl="/ac/Billboard.png"
@@ -367,7 +367,7 @@ export default function Design() {
             onClick={() => setSelectedImage("/ac/bb2.png")}
           />
         </div>
-      </div>
+      </div>*/}
 
       {/*Posters */}
       <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif mx-4 sm:mx-12 lg:mx-20 my-8 pt-12 sm:pt-16 lg:pt-20">
