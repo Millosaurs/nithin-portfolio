@@ -12,12 +12,14 @@ export default function Footer() {
           Ready to bring your vision to life? Let's collaborate and make magic
           happen!
         </p>
-        <Button
-          variant={"ghost"}
-          className="border-2 border-gray-950 text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6"
-        >
-          Get in Touch
-        </Button>
+        <a href="mailto:visolexagency@gmail.com">
+          <Button
+            variant={"ghost"}
+            className="border-2 border-gray-950 text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6"
+          >
+            Get in Touch
+          </Button>
+        </a>
       </div>
 
       {/* Footer Bottom */}
@@ -37,13 +39,19 @@ export default function Footer() {
 
           {/* Social Links or Additional Info */}
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-sm sm:text-base">
-            <a href="#" className="hover:text-white transition-colors">
+            <a
+              href="https://www.instagram.com/visolex.co"
+              className="hover:text-white transition-colors"
+            >
               Instagram
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            {/*<a href="#" className="hover:text-white transition-colors">
               LinkedIn
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
+            </a>*/}
+            <a
+              href="https://www.behance.net/gallery/238117605/My-Portfollio"
+              className="hover:text-white transition-colors"
+            >
               Behance
             </a>
           </div>

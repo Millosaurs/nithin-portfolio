@@ -45,9 +45,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <NoiseBackground
-      gradientFrom="#dbeafe"
-      gradientVia="#bfdbfe"
-      gradientTo="#93c5fd"
+      gradientFrom="#EAD3FF"
+      gradientVia="#EAD3FF"
+      gradientTo="#EAD3FF"
     >
       <Outlet />
     </NoiseBackground>

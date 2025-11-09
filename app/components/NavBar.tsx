@@ -15,9 +15,12 @@ export default function NavBar() {
         <Button
           variant={"ghost"}
           className="border-2 border-gray-950 text-sm sm:text-base px-3 sm:px-4"
+          asChild
         >
-          <span className="hidden sm:inline">Contact here</span>
-          <span className="inline sm:hidden">Contact</span>
+          <a href="mailto:visolexagency@gmail.com">
+            <span className="hidden sm:inline">Contact here</span>
+            <span className="inline sm:hidden">Contact</span>
+          </a>
         </Button>
       </div>
     </div>
