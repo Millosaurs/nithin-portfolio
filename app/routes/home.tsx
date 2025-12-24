@@ -4,6 +4,7 @@ import Hero from "~/components/hero";
 import Design from "~/components/design";
 import Footer from "~/components/footer";
 import About from "~/components/about";
+import BrandIdentity from "~/components/BrandIdentity";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -22,6 +23,7 @@ export default function Home() {
       <NavBar />
       <Hero />
       <Design />
+      <BrandIdentity />
       <About />
       <Footer />
     </div>
